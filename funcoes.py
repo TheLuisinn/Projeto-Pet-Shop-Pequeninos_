@@ -1,4 +1,5 @@
 RED = "\033[1;31m"
+PINK = "\033[1;35m"
 GREEN = "\033[1;32m"
 RESET = "\033[0m"
 
@@ -6,36 +7,44 @@ RESET = "\033[0m"
 def cadastrar_dados():
     try:
         with open('Dados.txt', 'a') as arquivo: # Abrir o arquivo 'Dados.txt' em modo de apêndice (adicionar dados ao final do arquivo)
+            
+            print(PINK)
+            print("******* CADASTRO DO CLIENTE *******")
+            print(RESET)
+            
+            codigo_cliente =int(input("Insira o codigo do cliente: "))
+            nome_Tutor = input("Insira o nome do cliente: ")
+            contato = int(input("Insira o número de telefone do cliente: "))
+            endereco = input("Insira o endereço do cliente: ")
+            bairro = input("Insira o bairro do cliente: ")
+            cep = int(input("Insira o cep do cliente: "))
+            ponto_de_referencia = input("Insira um ponto de referencia do cliente: ")
+            
+            print(PINK)
+            print("******* CADASTRO DO PACIENTE *******")
+            print(RESET)
+            
+            animal = input("Insira qual animal é o paciente:  ")
+            nome_paciente = input("Insira o nome do paciente: ")
+            raça = input("Insira a raça do paciente: ")
+            cor_da_pelagem = input("Insira a Cor da pelagem do paciente: ")
+            peso = float(input("Insira a peso do paciente: "))
+            data_de_nascimento= int(input("Insira o Cep do paciente: "))
+            restrição_alimentar = input("Insira alguma restrição alimentar do paciente: ")
+            medicação_continua= input("Insira alguma medica de uso continua do paciente: ")
+            observações = input("Insira alguma observação do paciente: ")
 
-            print("**CADASTRO DO TUTOR**")
-            codigo_cliente =int(input("Digite o codigo: "))
-            Nome_Tutor = input("Digite o nome do Tutor: ")
-            Contato = int(input("Adicione o número de telefone: "))
-            Endereco = input("Insira o endereço: ")
-            Bairro = input("Insira o bairro: ")
-            Cep = int(input("Insira o Cep: "))
-            Ponto_de_Referencia = input("Insira o Ponto de Referencia: ")
-            print("***CADASTRO DO PACIENTE***")
-            Nome_Paciente = input("Insira o nome do paciente: ")
-            Raça = input("Insira a raça: ")
-            Cor_da_pelagem = input("Insira a Cor da pelagem: ")
-            Peso = int(input("Insira a peso : "))
-            Data_de_Nascimento= int(input("Insira o Cep: "))
-            Restrição_Alimentar = input("Insira alguma restrição alimentar: ")
-            Medicação_continua= input("Insira alguma medica de uso continua: ")
-            Observações = input("Insira alguma observação: ")
-
-            cliente = f"{codigo_cliente},{Nome_Tutor},{Contato},{Endereco},{Bairro},{Cep},{Ponto_de_Referencia},{Nome_Paciente},{Raça},{Cor_da_pelagem},{Peso},{Data_de_Nascimento},{Restrição_Alimentar},{Medicação_continua},{Observações}\n" # Formatar os dados do cliente em uma string
+            cliente = f"{codigo_cliente},{contato},{endereco},{bairro},{cep},{ponto_de_referencia},{animal},{nome_paciente},{raça},{cor_da_pelagem},{peso},{data_de_nascimento},{restrição_alimentar},{medicação_continua},{observações}\n" # Formatar os dados do cliente em uma string
 
             arquivo.write(cliente) 
 
             print(GREEN)
-            print("Dados do aluno cadastrados com sucesso!") # Exibir uma mensagem de sucesso
+            print("Dados do Cliente e do Paciente cadastrados com sucesso!") # Exibir uma mensagem de sucesso
             print(RESET)
 
     except ValueError: # Capturar um erro caso os valores fornecidos pelo usuário não estejam no formato esperado
         print(RED)
-        print("Valor inválido. Certifique-se de digitar um valor numérico para o código do aluno e a idade, e um valor decimal para as notas.")
+        print("O Valor inserido é inválido. Não se esqueça de digitar um valor numérico e decimal corretamente")
         print(RESET)
 
     except Exception as e: # Capturar qualquer outro erro que possa ocorrer durante o cadastro dos dados
@@ -53,46 +62,50 @@ def listar_dados():
                 print("Não há nenhum dado cadastrado na Petshop Pequeninos.")
                 print(RESET)
             else:
-                print("Dados cadastrados na Petshop Pequeninos:") # Exibir um cabeçalho para os dados dos alunos
+                print(PINK)
+                print("DADOS CADASTRADOS NA PETSHOP PEQUENINOS:") # Exibir um cabeçalho para os dados dos alunos
+                print(RESET)
+                
                 for linha in linhas: # Iterar sobre cada linha do arquivo
                     dados = linha.strip().split(',') # Dividir a linha em partes separadas por vírgula (',') e remover os espaços em branco
                     
                     codigo_cliente = int(dados[0]) # Extrair os valores individuais de cada dado
-                    Nome_Tutor = dados[1]
-                    Contato = int(dados[2])
-                    Endereco = dados[3]
-                    Bairro = dados[4]
-                    Cep = int(dados[5])
-                    Ponto_de_Referencia = dados[6]
-                    Nome_Paciente = dados[7]
-                    Raça = dados[8]
-                    Cor_da_pelagem = dados[9]
-                    Peso = int(dados[10])
-                    Data_de_Nascimento= int(dados[11])
-                    Restrição_Alimentar = dados[12]
-                    Medicação_continua= dados[13]
-                    Observações = dados[14]
+                    nome_tutor = dados[1]
+                    contato = int(dados[2])
+                    endereco = dados[3]
+                    bairro = dados[4]
+                    cep = int(dados[5])
+                    ponto_de_referencia = dados[6]
+                    nome_paciente = dados[7]
+                    raça = dados[8]
+                    cor_da_pelagem = dados[9]
+                    peso = float(dados[10])
+                    data_de_nascimento= int(dados[11])
+                    restrição_alimentar = dados[12]
+                    medicação_continua= dados[13]
+                    observações = dados[14]
 
+                    print("--------------------")
                     print("Codigo do Cliente:", codigo_cliente)
-                    print("Contato:", Contato)
-                    print("Endereco:", Endereco)
-                    print("Bairro:", Bairro)
-                    print("Cep:", Cep)
-                    print("Ponto de Referencia:", Ponto_de_Referencia)
-                    print("Nome do Paciente:", Nome_Paciente)
-                    print("Raça:", Raça)
-                    print("Cor da Pelagem:", Cor_da_pelagem)
-                    print("Peso:", Peso)
-                    print("Data de Nascimento:", Data_de_Nascimento)
-                    print("Restrição Alimentar:", Restrição_Alimentar)
-                    print("Medicação Continua:", Medicação_continua)
-                    print("Observações:", Observações)
+                    print("Contato:", contato)
+                    print("Endereco:", endereco)
+                    print("Bairro:", bairro)
+                    print("Cep:", cep)
+                    print("Ponto de Referencia:", ponto_de_referencia)
+                    print("Nome do Paciente:", nome_paciente)
+                    print("Raça:", raça)
+                    print("Cor da Pelagem:", cor_da_pelagem)
+                    print("Peso:", peso)
+                    print("Data de Nascimento:", data_de_nascimento)
+                    print("Restrição Alimentar:", restrição_alimentar)
+                    print("Medicação Continua:", medicação_continua)
+                    print("Observações:", observações)
                     print("--------------------")
 
 
     except FileNotFoundError: # Capturar o erro caso o arquivo 'Dados.txt' não seja encontrado
         print(RED)
-        print("Arquivo de dados não encontrado.")
+        print("Arquivo de dados não foi encontrado na Petshop Pequeninos.")
         print(RESET)        
                 
     except Exception as e:  # Capturar qualquer outro erro que possa ocorrer durante a listagem dos dados
@@ -132,25 +145,35 @@ def alterar_dados():
                     
                     # Solicitar ao usuário os novos dados para o aluno
 
-                    Novo_codigo_cliente =int(input("Digite o codigo: "))
-                    Novo_Nome_Tutor = input("Digite o nome do Tutor: ")
-                    Novo_Contato = int(input("Adicione o número de telefone: "))
-                    Novo_Endereco = input("Insira o endereço: ")
-                    Novo_Bairro = input("Insira o bairro: ")
-                    Novo_Cep = int(input("Insira o Cep: "))
-                    Novo_Ponto_de_Referencia = input("Insira o Ponto de Referencia: ")
-                    print("***CADASTRO DO PACIENTE***")
-                    Novo_Nome_Paciente = input("Insira o nome do paciente: ")
-                    Novo_Raça = input("Insira a raça: ")
-                    Novo_Cor_da_pelagem = input("Insira a Cor da pelagem: ")
-                    Novo_Peso = int(input("Insira a peso : "))
-                    Novo_Data_de_Nascimento= int(input("Insira o Cep: "))
-                    Novo_Restrição_Alimentar = input("Insira alguma restrição alimentar: ")
-                    Novo_Medicação_continua= input("Insira alguma medica de uso continua: ")
-                    Novo_Observações = input("Insira alguma observação: ")
+                    print(PINK)
+                    print("*******ALTERAÇÃO NO CLIENTE*******")
+                    print(RESET)
+                    
+                    novo_Animal = input("")
+                    novo_codigo_cliente =int(input("Digite o novo codigo do cliente: "))
+                    novo_nome_tutor = input("Digite o novo nome do Tutor: ")
+                    novo_contato = int(input("Adicione o novo número de telefone: "))
+                    novo_endereco = input("Insira o novo endereço: ")
+                    novo_bairro = input("Insira o novo bairro: ")
+                    novo_cep = int(input("Insira o novo Cep: "))
+                    novo_ponto_de_referencia = input("Insira um novo Ponto de Referencia: ")
+                    
+                    print(PINK)
+                    print("******ALTERAÇÃO NO PACIENTE******")
+                    print(RESET)
+                    
+                    
+                    novo_nome_paciente = input("Insira o novo nome do paciente: ")
+                    novo_raça = input("Insira a nova raça: ")
+                    novo_cor_da_pelagem = input("Insira a nova Cor da pelagem: ")
+                    novo_peso = float(input("Insira o novo peso : "))
+                    novo_data_de_nascimento= int(input("Insira o novo Cep: "))
+                    novo_restrição_alimentar = input("Insira alguma nova restrição alimentar: ")
+                    novo_medicação_continua= input("Insira alguma nova medicação de uso continua: ")
+                    novo_observações = input("Insira alguma nova observação: ")
 
                     # Criar uma nova linha com os novos dados do aluno
-                    cliente = f"{Novo_codigo_cliente},{Novo_Nome_Tutor},{Novo_Contato},{Novo_Endereco},{Novo_Bairro},{Novo_Cep},{Novo_Ponto_de_Referencia},{Novo_Nome_Paciente},{Novo_Raça},{Novo_Cor_da_pelagem},{Novo_Peso},{Novo_Data_de_Nascimento},{Novo_Restrição_Alimentar},{Novo_Medicação_continua},{Novo_Observações}\n" # Formatar os dados do cl
+                    cliente = f"{novo_codigo_cliente},{novo_nome_tutor},{novo_contato},{novo_endereco},{novo_bairro},{novo_cep},{novo_ponto_de_referencia},{novo_nome_paciente},{novo_raça},{novo_cor_da_pelagem},{novo_peso},{novo_data_de_nascimento},{novo_restrição_alimentar},{novo_medicação_continua},{novo_observações}\n" # Formatar os dados do cl
 
                     print(GREEN)
                     print("Dados do aluno alterados com sucesso!")
