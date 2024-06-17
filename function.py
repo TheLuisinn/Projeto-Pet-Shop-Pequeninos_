@@ -164,16 +164,16 @@ def alterar_dados():
                     
                     
                     novo_nome_paciente = input("Insira o novo nome do paciente: ")
-                    novo_raça = input("Insira a nova raça: ")
-                    novo_cor_da_pelagem = input("Insira a nova Cor da pelagem: ")
+                    nova_raça = input("Insira a nova raça: ")
+                    nova_cor_da_pelagem = input("Insira a nova Cor da pelagem: ")
                     novo_peso = float(input("Insira o novo peso : "))
-                    novo_data_de_nascimento= int(input("Insira o novo Cep: "))
-                    novo_restrição_alimentar = input("Insira alguma nova restrição alimentar: ")
-                    novo_medicação_continua= input("Insira alguma nova medicação de uso continua: ")
-                    novo_observações = input("Insira alguma nova observação: ")
+                    nova_data_de_nascimento= int(input("Insira o novo Cep: "))
+                    nova_restrição_alimentar = input("Insira alguma nova restrição alimentar: ")
+                    nova_medicação_continua= input("Insira alguma nova medicação de uso continua: ")
+                    nova_observações = input("Insira alguma nova observação: ")
 
                     # Criar uma nova linha com os novos dados do aluno
-                    cliente = f"{novo_codigo_cliente},{novo_nome_tutor},{novo_contato},{novo_endereco},{novo_bairro},{novo_cep},{novo_ponto_de_referencia},{novo_nome_paciente},{novo_raça},{novo_cor_da_pelagem},{novo_peso},{novo_data_de_nascimento},{novo_restrição_alimentar},{novo_medicação_continua},{novo_observações}\n" # Formatar os dados do cl
+                    cliente = f"{novo_codigo_cliente},{novo_nome_tutor},{novo_contato},{novo_endereco},{novo_bairro},{novo_cep},{novo_ponto_de_referencia},{novo_nome_paciente},{nova_raça},{nova_cor_da_pelagem},{novo_peso},{nova_data_de_nascimento},{nova_restrição_alimentar},{nova_medicação_continua},{nova_observações}\n" # Formatar os dados do cl
 
                     print(GREEN)
                     print("Dados do aluno alterados com sucesso!")
