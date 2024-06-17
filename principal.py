@@ -1,4 +1,4 @@
-from funcoes import *
+from function import *
 
 def cabecalho():
     
@@ -16,8 +16,9 @@ def cabecalho():
 def exibir_menu():
 
     while True:
-
+        print(PINK)
         print("Seja Bem-Vindo(a) a Petshop Pequeninos, Escolha uma das seguintes opções:")
+        print(RESET)
         print("1 - Cadastrar Dados")
         print("2 - Listar Dados")
         print("3 - Alterar Dados")
@@ -50,6 +51,6 @@ exibir_menu()
 # Exbir Menu / FEITO
 # Cadastrar Dados / FEITO
 # Listar Dados / FEITO
-# Alterar Dados / 
+# Alterar Dados / FEITO
 # Excluir Dados / FEITO
 # Realizar Backup / FEITO
