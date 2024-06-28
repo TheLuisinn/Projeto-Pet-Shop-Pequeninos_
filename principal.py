@@ -242,7 +242,7 @@ def excluir_dados():
                     print("Número inválido. Nenhum dado foi excluído.")
                     print(RESET)
                 
-                nova_linha = ','.join(dados) + '\n'
+                nova_linha = ','.join(dados) + '\n' # Concatena os elementos da lista 'dados' em uma string separados por vírgula e adiciona uma quebra de linha no final
                 linha = nova_linha  # Atualiza a linha com o dado excluído
                 break
 
