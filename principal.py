@@ -28,7 +28,7 @@ def cadastrar_dados():
             raça = input("Insira a raça do paciente: ")
             cor_da_pelagem = input("Insira a cor da pelagem do paciente: ")
             peso = float(input("Insira o peso do paciente: "))
-            data_de_nascimento = input("Insira a data de nascimento do paciente: ")
+            data_de_nascimento = int(input("Insira a data de nascimento do paciente: ")
             restrição_alimentar = input("Insira alguma restrição alimentar do paciente: ")
             medicação_continua = input("Insira alguma medicação de uso continua do paciente: ")
             observações = input("Insira alguma observação do paciente: ")
@@ -81,7 +81,7 @@ def listar_dados():
                     raça = dados[9]
                     cor_da_pelagem = dados[10]
                     peso = float(dados[11])
-                    data_de_nascimento = dados[12]
+                    data_de_nascimento = int(dados[12])
                     restrição_alimentar = dados[13]
                     medicação_continua = dados[14]
                     observações = dados[15]
